@@ -43,6 +43,7 @@ long	ft_conv_uint(t_params params, unsigned int nbr);
 long	ft_conv_hex(t_params params, size_t nbr);
 void	ft_putbase(char *buffer, t_params params, size_t nbr, size_t i_nbr);
 char	*ft_alloc_hex(t_params *params, size_t *size, size_t *len, size_t nbr);
+long	ft_sign(t_params params);
 long	ft_conv_null_str(t_params params);
 
 size_t	ft_parse_flags(const char *s, t_params *params);

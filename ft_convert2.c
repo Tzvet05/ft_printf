@@ -29,7 +29,7 @@ long	ft_conv_hex(t_params params, size_t nbr)
 	ft_memset(buffer, params.pad_char, size);
 	ft_putbase(buffer, params, nbr, size - len);
 	if (params.pad_right && !(!nbr && !params.precision))
-		ft_puthex(&buffer[2 * params.base], len, nbr, params.spec);
+		ft_puthex(&buffer[2 * params.base * !!nbr], len, nbr, params.spec);
 	else if (!(!nbr && !params.precision))
 		ft_puthex(&buffer[size - len], len, nbr, params.spec);
 	wrote = write(1, buffer, size);
@@ -66,6 +66,28 @@ char	*ft_alloc_hex(t_params *params, size_t *size, size_t *len, size_t nbr)
 	if (!buffer)
 		return (NULL);
 	return (buffer);
+}
+
+long	ft_sign(t_params params)
+{
+	char	*buffer;
+	long	wrote;
+	size_t	size;
+
+	if (!params.width && params.sign != '+')
+		return (0);
+	size = ft_max(params.width, 1);
+	buffer = malloc(size * sizeof(char));
+	if (!buffer)
+		return (-1);
+	ft_memset(buffer, params.pad_char, size);
+	if (params.pad_right && params.sign)
+		buffer[0] = '+';
+	else if (params.sign)
+		buffer[size - 1] = '+';
+	wrote = write(1, buffer, size);
+	free(buffer);
+	return (wrote);
 }
 
 long	ft_conv_null_str(t_params params)

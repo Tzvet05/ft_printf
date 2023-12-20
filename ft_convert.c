@@ -78,8 +78,8 @@ long	ft_conv_int(t_params params, int nbr)
 	size_t	size;
 	size_t	len;
 
-	if (!nbr && !params.precision && !params.width)
-		return (0);
+	if (!nbr && !params.precision)
+		return (ft_sign(params));
 	if (params.pad_char == '0' && params.width > 0)
 		params.precision = params.width - (params.sign != 0 || nbr < 0);
 	len = ft_len_nbr(nbr);
