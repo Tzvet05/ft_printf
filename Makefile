@@ -26,17 +26,7 @@ SRC = ft_printf.c \
 	ft_print_format.c \
 	ft_printf_utils.c
 
-SRC_BONUS = ft_printf_bonus.c \
-	ft_convert_bonus.c \
-	ft_convert2_bonus.c \
-	ft_parse_params_bonus.c \
-	ft_parse_params2_bonus.c \
-	ft_print_format_bonus.c \
-	ft_printf_utils_bonus.c
-
 OBJ = $(SRC:.c=.o)
-
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -48,19 +38,14 @@ $(NAME): $(OBJ)
 .c.o:
 	$(CC) $(CFLAG) -I $(HEADER) -c $< -o $@
 
-bonus: $(OBJ_BONUS)
-	make -C libft/
-	mv libft/libft.a ./$(NAME)
-	ar rcs $(NAME) $(OBJ_BONUS) $(HEADER)
-
 fclean: clean
 	make fclean -C libft/
 	rm -f $(NAME)
 
 clean:
 	make clean -C libft/
-	rm -f $(OBJ) $(OBJ_BONUS)
+	rm -f $(OBJ)
 
 re:	fclean all
 
-.PHONY: all fclean clean re bonus
+.PHONY: all fclean clean re

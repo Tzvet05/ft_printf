@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_params_bonus.c                            :+:      :+:    :+:   */
+/*   ft_parse_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttrave <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:07:23 by ttrave            #+#    #+#             */
-/*   Updated: 2023/12/17 13:08:39 by ttrave           ###   ########.fr       */
+/*   Updated: 2023/11/30 19:07:27 by ttrave           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
 size_t	ft_parse_flags(const char *s, t_params *params)
 {
